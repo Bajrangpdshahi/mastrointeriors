@@ -28,7 +28,7 @@ header {
 
     width: 100%; /* Ensure header does not cause overflow */
     padding: 0;
-    position: fixed;
+    /* position: fixed; */
     top: 0;
     z-index: 1000;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -67,7 +67,7 @@ header {
 
 
 header nav {
-    display: flex;
+    display: contents;
     align-items: center;
     justify-content: flex-end;
     /* flex: 1; */
@@ -91,7 +91,7 @@ nav {
     padding-left: 100%;
     animation: scroll-left 42s linear infinite;
     animation-delay: 2s; /* Delay before animation starts */
-    color: #d93007;
+    color: #333;
 
     font-size: 18px;
 }
@@ -131,10 +131,11 @@ nav {
 }
 
 nav a {
-    color: #d93007;
+    color: #333;
     text-decoration: none;
     margin: 0 15px;
     font-size: 18px;
+    font-weight: 550;
     transition: color 0.3s ease;
     position: relative;
 }
@@ -182,7 +183,7 @@ nav a:hover {
 
 /* Slider Section */
 .slider {
-    margin-top: 96px;
+    /* margin-top: 96px; */
     position: relative;
     max-width: 100%;
     overflow: hidden;
@@ -446,11 +447,13 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-    header {
+    /* header {
         flex-direction: column;
         text-align: center;
+    } */
+    .slide img {
+        height: 161%;
     }
-
     header nav {
         width: 100%;
         justify-content: center;
@@ -460,7 +463,10 @@ footer {
     .contact-form {
         position: static;
         transform: none;
-        margin: 20px auto;
+        margin-left: auto;
+        margin-right: auto;
+        margin-bottom: 20px;
+        margin-top: 87px;
         max-width: 90%;
     }
 
