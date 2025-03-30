@@ -24,7 +24,7 @@ def mastero_interiors(request):
                 f'Meet a Designer Request from {name}',
                 message,
                 email,
-                ['srihome023@gmail.com'],
+                ['mastrointeriorsbyalkasri@gmail.com'],
                 fail_silently=False,
             )
             messages.success(request, 'Thank you! Your request has been submitted.')
