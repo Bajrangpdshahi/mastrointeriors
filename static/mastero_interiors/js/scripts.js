@@ -77,16 +77,32 @@ let slideIndex = 0;
 
 
 
-  tinymce.init({
-    selector: 'textarea#editor',
-    menubar: false,
-    plugins: 'link image media',
-    toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
-    content_css: '//www.tiny.cloud/css/codepen.min.css'
-  });
+//   tinymce.init({
+//     selector: 'textarea#editor',
+//     menubar: false,
+//     plugins: 'link image media',
+//     toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
+//     content_css: '//www.tiny.cloud/css/codepen.min.css'
+//   });
 
   document.querySelectorAll('.dropdown a').forEach(function(dropdownToggle) {
     dropdownToggle.addEventListener('click', function() {
         this.parentElement.classList.toggle('active');
     });
 });
+document.addEventListener("DOMContentLoaded", function () {
+    const menuToggle = document.querySelector(".menu-toggle");
+    const nav = document.querySelector("nav");
+
+    menuToggle.addEventListener("click", function () {
+        nav.classList.toggle("active");
+    });
+
+    document.querySelectorAll(".dropdown > a").forEach(function (dropdownToggle) {
+        dropdownToggle.addEventListener("click", function (event) {
+            event.preventDefault(); // Prevent default link behavior
+            this.parentElement.classList.toggle("active");
+        });
+    });
+});
+

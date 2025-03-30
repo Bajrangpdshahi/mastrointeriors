@@ -458,6 +458,7 @@ footer {
         width: 100%;
         justify-content: center;
         margin-top: 10px;
+        display: none;
     }
 
     .contact-form {
