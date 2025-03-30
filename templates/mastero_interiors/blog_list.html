@@ -1,0 +1,73 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastero Interior</title>
+    <link rel="stylesheet" href="{% static 'mastero_interiors/css/styles.css' %}">
+</head>
+<body>
+    {% include 'mastero_interiors/header.html' %}
+    <style>
+        
+
+        /* Ensures that main content does not overlap header */
+        main {
+            margin-top: 106px; /* Adjust this value based on your header's height */
+        }
+    </style>
+        <!-- Main Content -->
+        <main class="blog-page">
+            <section class="blog-content">
+                <article class="blog-post">
+                    <h2>{{ post.title }}</h2>
+                    {% if post.image %}
+                        <img src="{{ post.image.url }}" alt="{{ post.title }}">
+                    {% else %}
+                        <img src="{% static 'mastero_interiors/images/sd.jpg' %}" alt="Blog Post Image" class="blog-image">
+
+                    {% endif %}
+
+                    
+                    {{ post.content|safe }}
+                </article>
+                <!-- Pagination -->
+                <div class="pagination">
+                    <a href="blog-page1.html" class="prev">Previous</a>
+                    <a href="blog-page3.html" class="next">Next</a>
+                </div>
+
+                <div class="navigation pagination">
+                    {% if previous_post %}
+                        <a class="prev" href="{% url 'blog_page' previous_post.pk %}">Previous: {{ previous_post.title }}</a>
+                    {% else %}
+                        <span>No previous post</span>
+                    {% endif %}
+                    {% if next_post %}
+                        <a class="next" href="{% url 'blog_page' next_post.pk %}">Next: {{ next_post.title }}</a>
+                    {% else %}
+                        <span>No next post</span>
+                    {% endif %}
+                </div>
+            </section>
+    
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3>Trending Blogs</h3>
+                <ul>
+                    {% for pop in popular_posts %}
+                        <li><a href="{% url 'blog_page' pop.pk %}">{{pop.title}}</a></li>
+                    {% endfor %}
+                </ul>
+            </aside>
+        </main>
+    
+        {% include 'mastero_interiors/footer.html' %}
+    {% include 'mastero_interiors/floating_icons.html' %}
+
+    <script src="{% static 'mastero_interiors/js/scripts.js' %}"></script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+{% load static %}
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Blog Post</title>
+    <!-- <script src="https://cdn.tiny.cloud/1/no-api-key/tinymce/5/tinymce.min.js" referrerpolicy="origin"></script> -->
+    <!-- Place the first <script> tag in your HTML's <head> -->
+<script src="https://cdn.tiny.cloud/1/2em2004ep14h2wvdadqgqysy3ko3eqb89xiis3ennoyisxnv/tinymce/7/tinymce.min.js" referrerpolicy="origin"></script>
+
+<!-- Place the following <script> and <textarea> tags your HTML's <body> -->
+<!-- <script>
+  tinymce.init({
+    selector: 'textarea#editor',
+    plugins: [
+      // Core editing features
+      'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+      // Your account includes a free trial of TinyMCE premium features
+      // Try the most popular premium features until Sep 15, 2024:
+      'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+    ],
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    tinycomments_mode: 'embedded',
+    tinycomments_author: 'Author name',
+    mergetags_list: [
+      { value: 'First.Name', title: 'First Name' },
+      { value: 'Email', title: 'Email' },
+    ],
+    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+  });
+</script> -->
+
+<script>
+  tinymce.init({
+    selector: 'textarea#editor',
+    // menubar: false,
+    plugins: [
+      // Core editing features
+      'anchor', 'autolink', 'charmap', 'codesample', 'emoticons', 'image', 'link', 'lists', 'media', 'searchreplace', 'table', 'visualblocks', 'wordcount',
+      // Your account includes a free trial of TinyMCE premium features
+      // Try the most popular premium features until Sep 15, 2024:
+      'checklist', 'mediaembed', 'casechange', 'export', 'formatpainter', 'pageembed', 'a11ychecker', 'tinymcespellchecker', 'permanentpen', 'powerpaste', 'advtable', 'advcode', 'editimage', 'advtemplate', 'ai', 'mentions', 'tinycomments', 'tableofcontents', 'footnotes', 'mergetags', 'autocorrect', 'typography', 'inlinecss', 'markdown',
+    ],
+    toolbar: 'undo redo | blocks fontfamily fontsize | bold italic underline strikethrough | link image media table mergetags | addcomment showcomments | spellcheckdialog a11ycheck typography | align lineheight | checklist numlist bullist indent outdent | emoticons charmap | removeformat',
+    tinycomments_mode: 'embedded',
+    ai_request: (request, respondWith) => respondWith.string(() => Promise.reject('See docs to implement AI Assistant')),
+    // toolbar: 'undo redo | formatselect | bold italic | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | link image media',
+    setup: function (editor) {
+      editor.on('change', function () {
+        editor.save();  // Ensure TinyMCE updates the textarea
+      });
+    },
+    content_css: '//www.tiny.cloud/css/codepen.min.css'
+  });
+</script>
+
+<link rel="stylesheet" href="{% static 'mastero_interiors/css/styles.css' %}">
+
+
+</head>
+<body>
+    <header>
+        <div class="branding">
+            <!-- <img src="{% static 'images/PNG.png' %}" alt="Mastero Interior Logo"> -->
+            <img src="{% static 'mastero_interiors/images/PNG.png' %}" alt="Mastero Interior Logo">
+            <a href="{% url 'index' %}" class ="brand-name">
+                <h1>Mastro Interiors</h1>
+                <h3>Mob : 8802636414</h3>
+            </a>
+        </div>
+        <div class="notification">
+            <p>Important Announcement: Transform Your Space for Just ₹99! 🏠✨ Get Expert Interior Design Consultancy Now! 🎨 Ask Us Anything—From Design Concepts to Style Tips! Hurry, Limited Time Offer!</p>
+        </div>
+
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            <a href="{% url 'blog_page' %}">Blogs</a>
+    
+        </nav>
+    </header>
+
+    <h1>Create New Blog Post</h1>
+
+    <form method="POST" enctype="multipart/form-data">  <!-- Add enctype attribute -->
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">Save Blog Post</button>
+    </form>
+
+</body>
+</html>
