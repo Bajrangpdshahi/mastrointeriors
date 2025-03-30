@@ -1,0 +1,16 @@
+<article class="blog-post">
+    <h2>{{ post.title }}</h2>
+    {% if post.image %}
+        <img src="{{ post.image.url }}" alt="Blog Image" class="blog-image">
+    {% endif %}
+    <div class="blog-content">{{ post.content|safe }}</div>
+
+    <div class="pagination">
+        {% if previous_post %}
+            <a href="{% url 'blog_detail' previous_post.id %}" class="prev">Previous</a>
+        {% endif %}
+        {% if next_post %}
+            <a href="{% url 'blog_detail' next_post.id %}" class="next">Next</a>
+        {% endif %}
+    </div>
+</article>

@@ -1,0 +1,488 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastero Interior</title>
+    <link rel="stylesheet" href="{% static 'mastero_interiors/css/styles.css' %}">
+</head>
+
+<body>
+    {% include 'mastero_interiors/header.html' %}
+
+    <!-- Flash Sale Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="close-btn">&times;</span>
+            <img src="{% static 'mastero_interiors/images/21.jpg' %}" alt="Flash Sale Poster">
+        </div>
+    </div>
+
+    <!-- Slider Section -->
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="{% static 'mastero_interiors/images/1.jpg' %}" alt="Slide 1">
+            </div>
+            <div class="slide">
+                <img src="{% static 'mastero_interiors/images/2.jpg' %}" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="{% static 'mastero_interiors/images/3.jpg' %}" alt="Slide 3">
+            </div>
+        </div>
+        <div class="contact-form">
+            <h3>Meet a Designer</h3>
+            <form method="POST" action="{% url 'index' %}">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+        <a class="next" onclick="moveSlide(1)">&#10095;</a>
+    </div>
+    <div class="dots">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+    <!-- service box -->
+    <div class="content">
+        <h2>Why Mastero Interior?</h2>
+        <div class="services">
+            <div class="service">
+                <h3>Personalized Designs</h3>
+                <p>Our designs are tailored to reflect your unique style and needs.</p>
+            </div>
+            <div class="service">
+                <h3>Quality Craftsmanship</h3>
+                <p>We ensure top-quality materials and craftsmanship in every project.</p>
+            </div>
+            <div class="service">
+                <h3>Comprehensive Service</h3>
+                <p>From consultation to execution, we handle every detail seamlessly.</p>
+            </div>
+            <div class="service">
+                <h3>Timely Delivery</h3>
+                <p>We respect your time and deliver projects on schedule.</p>
+            </div>
+            <div class="service">
+                <h3>Transparent Pricing</h3>
+                <p>Our pricing is clear with no hidden costs, providing you peace of mind.</p>
+            </div>
+        </div>
+
+        <h2>Explore Our Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>Modern Living Room</h3>
+                <p>A beautiful and modern living room designed with comfort in mind.</p>
+            </div>
+            <div class="project">
+                <h3>Luxurious Bedroom</h3>
+                <p>An elegant and luxurious bedroom for ultimate relaxation.</p>
+            </div>
+            <div class="project">
+                <h3>Stylish Kitchen</h3>
+                <p>A stylish and functional kitchen designed for the modern chef.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- service logo  -->
+    <div class="elementor-widget-wrap elementor-element-populated">
+        <div class="elementor-element elementor-element-f3d2281 elementor-widget elementor-widget-heading"
+            data-id="f3d2281" data-element_type="widget" data-widget_type="heading.default">
+            <div class="elementor-widget-container">
+                <h2 class="elementor-heading-title elementor-size-default">END-TO-END INTERIOR SOLUTIONS</h2>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-03e13a2 elementor-widget elementor-widget-text-editor"
+            data-id="03e13a2" data-element_type="widget" data-widget_type="text-editor.default">
+            <div class="elementor-widget-container">
+                <p>A one-stop shop for all your interior requirements</p>
+            </div>
+        </div>
+        <div class="elementor-element elementor-element-230a520 gallery-spacing-custom elementor-hidden-mobile elementor-widget elementor-widget-image-gallery"
+            data-id="230a520" data-element_type="widget" data-widget_type="image-gallery.default">
+            <div class="elementor-widget-container">
+                <style>
+                    /*! elementor - v3.23.0 - 15-07-2024 */
+                    .elementor-image-gallery .gallery-item {
+                        display: inline-block;
+                        text-align: center;
+                        vertical-align: top;
+                        width: 100%;
+                        max-width: 100%;
+                        margin: 0 auto
+                    }
+
+                    .elementor-image-gallery .gallery-item img {
+                        margin: 0 auto
+                    }
+
+                    .elementor-image-gallery .gallery-item .gallery-caption {
+                        margin: 0
+                    }
+
+                    .elementor-image-gallery figure img {
+                        display: block
+                    }
+
+                    .elementor-image-gallery figure figcaption {
+                        width: 100%
+                    }
+
+                    .gallery-spacing-custom .elementor-image-gallery .gallery-icon {
+                        padding: 0
+                    }
+
+                    @media (min-width:768px) {
+                        .elementor-image-gallery .gallery-columns-2 .gallery-item {
+                            max-width: 50%
+                        }
+
+                        .elementor-image-gallery .gallery-columns-3 .gallery-item {
+                            max-width: 33.33%
+                        }
+
+                        .elementor-image-gallery .gallery-columns-4 .gallery-item {
+                            max-width: 25%
+                        }
+
+                        .elementor-image-gallery .gallery-columns-5 .gallery-item {
+                            max-width: 20%
+                        }
+
+                        .elementor-image-gallery .gallery-columns-6 .gallery-item {
+                            max-width: 16.666%
+                        }
+
+                        .elementor-image-gallery .gallery-columns-7 .gallery-item {
+                            max-width: 14.28%
+                        }
+
+                        .elementor-image-gallery .gallery-columns-8 .gallery-item {
+                            max-width: 12.5%
+                        }
+
+                        .elementor-image-gallery .gallery-columns-9 .gallery-item {
+                            max-width: 11.11%
+                        }
+
+                        .elementor-image-gallery .gallery-columns-10 .gallery-item {
+                            max-width: 10%
+                        }
+                    }
+
+                    @media (min-width:480px) and (max-width:767px) {
+
+                        .elementor-image-gallery .gallery.gallery-columns-2 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-3 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-4 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-5 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-6 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-7 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-8 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-9 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-10 .gallery-item {
+                            max-width: 50%
+                        }
+                    }
+
+                    @media (max-width:479px) {
+
+                        .elementor-image-gallery .gallery.gallery-columns-2 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-3 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-4 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-5 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-6 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-7 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-8 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-9 .gallery-item,
+                        .elementor-image-gallery .gallery.gallery-columns-10 .gallery-item {
+                            max-width: 100%
+                        }
+                    }
+                </style>
+                <div class="elementor-image-gallery">
+                    <div id="gallery-1" class="gallery galleryid-150 gallery-columns-5 gallery-size-thumbnail">
+                        <figure class="gallery-item">
+                            <div class="gallery-icon landscape">
+                                <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="230a520"
+                                    data-elementor-lightbox-title="Modular Kitchen"
+                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjUyLCJ1cmwiOiJodHRwczpcL1wvZHJpZnR3b29kaW50ZXJpb3JzLmluXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wMlwva2l0Y2hlbi1jYWJpbmV0LnBuZyIsInNsaWRlc2hvdyI6IjIzMGE1MjAifQ%3D%3D"
+                                    href="https://driftwoodinteriors.in/wp-content/uploads/2024/02/kitchen-cabinet.png"><img
+                                        loading="lazy" decoding="async" width="150" height="150"
+                                        src="https://driftwoodinteriors.in/wp-content/uploads/2024/02/kitchen-cabinet-150x150.png"
+                                        class="attachment-thumbnail size-thumbnail" alt=""
+                                        aria-describedby="gallery-1-252"
+                                        srcset="https://driftwoodinteriors.in/wp-content/uploads/2024/02/kitchen-cabinet-150x150.png 150w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/kitchen-cabinet-300x300.png 300w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/kitchen-cabinet.png 512w"
+                                        sizes="(max-width: 150px) 100vw, 150px"></a>
+                            </div>
+                            <figcaption class="wp-caption-text gallery-caption" id="gallery-1-252">
+                                Modular Kitchen
+                            </figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <div class="gallery-icon landscape">
+                                <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="230a520"
+                                    data-elementor-lightbox-title="Wardrobe"
+                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjUzLCJ1cmwiOiJodHRwczpcL1wvZHJpZnR3b29kaW50ZXJpb3JzLmluXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wMlwvY2xvc2V0LTEucG5nIiwic2xpZGVzaG93IjoiMjMwYTUyMCJ9"
+                                    href="https://driftwoodinteriors.in/wp-content/uploads/2024/02/closet-1.png"><img
+                                        loading="lazy" decoding="async" width="150" height="150"
+                                        src="https://driftwoodinteriors.in/wp-content/uploads/2024/02/closet-1-150x150.png"
+                                        class="attachment-thumbnail size-thumbnail" alt=""
+                                        aria-describedby="gallery-1-253"
+                                        srcset="https://driftwoodinteriors.in/wp-content/uploads/2024/02/closet-1-150x150.png 150w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/closet-1-300x300.png 300w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/closet-1.png 512w"
+                                        sizes="(max-width: 150px) 100vw, 150px"></a>
+                            </div>
+                            <figcaption class="wp-caption-text gallery-caption" id="gallery-1-253">
+                                Wardrobe
+                            </figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <div class="gallery-icon landscape">
+                                <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="230a520"
+                                    data-elementor-lightbox-title="Crockery Unit"
+                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU0LCJ1cmwiOiJodHRwczpcL1wvZHJpZnR3b29kaW50ZXJpb3JzLmluXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wMlwvY3JvY2tlcnktMS5wbmciLCJzbGlkZXNob3ciOiIyMzBhNTIwIn0%3D"
+                                    href="https://driftwoodinteriors.in/wp-content/uploads/2024/02/crockery-1.png"><img
+                                        loading="lazy" decoding="async" width="150" height="150"
+                                        src="https://driftwoodinteriors.in/wp-content/uploads/2024/02/crockery-1-150x150.png"
+                                        class="attachment-thumbnail size-thumbnail" alt=""
+                                        aria-describedby="gallery-1-254"
+                                        srcset="https://driftwoodinteriors.in/wp-content/uploads/2024/02/crockery-1-150x150.png 150w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/crockery-1-300x300.png 300w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/crockery-1.png 512w"
+                                        sizes="(max-width: 150px) 100vw, 150px"></a>
+                            </div>
+                            <figcaption class="wp-caption-text gallery-caption" id="gallery-1-254">
+                                Crockery Unit
+                            </figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <div class="gallery-icon landscape">
+                                <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="230a520"
+                                    data-elementor-lightbox-title="furniture"
+                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU1LCJ1cmwiOiJodHRwczpcL1wvZHJpZnR3b29kaW50ZXJpb3JzLmluXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wMlwvZnVybml0dXJlLnBuZyIsInNsaWRlc2hvdyI6IjIzMGE1MjAifQ%3D%3D"
+                                    href="https://driftwoodinteriors.in/wp-content/uploads/2024/02/furniture.png"><img
+                                        loading="lazy" decoding="async" width="150" height="150"
+                                        src="https://driftwoodinteriors.in/wp-content/uploads/2024/02/furniture-150x150.png"
+                                        class="attachment-thumbnail size-thumbnail" alt=""
+                                        aria-describedby="gallery-1-255"
+                                        srcset="https://driftwoodinteriors.in/wp-content/uploads/2024/02/furniture-150x150.png 150w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/furniture-300x300.png 300w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/furniture.png 512w"
+                                        sizes="(max-width: 150px) 100vw, 150px"></a>
+                            </div>
+                            <figcaption class="wp-caption-text gallery-caption" id="gallery-1-255">
+                                Space Saving Furniture
+                            </figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <div class="gallery-icon landscape">
+                                <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="230a520"
+                                    data-elementor-lightbox-title="tv-table"
+                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU2LCJ1cmwiOiJodHRwczpcL1wvZHJpZnR3b29kaW50ZXJpb3JzLmluXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wMlwvdHYtdGFibGUucG5nIiwic2xpZGVzaG93IjoiMjMwYTUyMCJ9"
+                                    href="https://driftwoodinteriors.in/wp-content/uploads/2024/02/tv-table.png"><img
+                                        loading="lazy" decoding="async" width="150" height="150"
+                                        src="https://driftwoodinteriors.in/wp-content/uploads/2024/02/tv-table-150x150.png"
+                                        class="attachment-thumbnail size-thumbnail" alt=""
+                                        aria-describedby="gallery-1-256"
+                                        srcset="https://driftwoodinteriors.in/wp-content/uploads/2024/02/tv-table-150x150.png 150w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/tv-table-300x300.png 300w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/tv-table.png 512w"
+                                        sizes="(max-width: 150px) 100vw, 150px"></a>
+                            </div>
+                            <figcaption class="wp-caption-text gallery-caption" id="gallery-1-256">
+                                TV Unit
+                            </figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <div class="gallery-icon landscape">
+                                <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="230a520"
+                                    data-elementor-lightbox-title="Study Tables"
+                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU3LCJ1cmwiOiJodHRwczpcL1wvZHJpZnR3b29kaW50ZXJpb3JzLmluXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wMlwvb2ZmaWNlLWRlc2sucG5nIiwic2xpZGVzaG93IjoiMjMwYTUyMCJ9"
+                                    href="https://driftwoodinteriors.in/wp-content/uploads/2024/02/office-desk.png"><img
+                                        loading="lazy" decoding="async" width="150" height="150"
+                                        src="https://driftwoodinteriors.in/wp-content/uploads/2024/02/office-desk-150x150.png"
+                                        class="attachment-thumbnail size-thumbnail" alt=""
+                                        aria-describedby="gallery-1-257"
+                                        srcset="https://driftwoodinteriors.in/wp-content/uploads/2024/02/office-desk-150x150.png 150w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/office-desk-300x300.png 300w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/office-desk.png 512w"
+                                        sizes="(max-width: 150px) 100vw, 150px"></a>
+                            </div>
+                            <figcaption class="wp-caption-text gallery-caption" id="gallery-1-257">
+                                Study Tables
+                            </figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <div class="gallery-icon landscape">
+                                <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="230a520"
+                                    data-elementor-lightbox-title="False Ceiling"
+                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU4LCJ1cmwiOiJodHRwczpcL1wvZHJpZnR3b29kaW50ZXJpb3JzLmluXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wMlwvRmFsc2UtQ2VpbGluZy5qcGciLCJzbGlkZXNob3ciOiIyMzBhNTIwIn0%3D"
+                                    href="https://driftwoodinteriors.in/wp-content/uploads/2024/02/False-Ceiling.jpg"><img
+                                        loading="lazy" decoding="async" width="150" height="150"
+                                        src="https://driftwoodinteriors.in/wp-content/uploads/2024/02/False-Ceiling-150x150.jpg"
+                                        class="attachment-thumbnail size-thumbnail" alt=""
+                                        aria-describedby="gallery-1-258"
+                                        srcset="https://driftwoodinteriors.in/wp-content/uploads/2024/02/False-Ceiling-150x150.jpg 150w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/False-Ceiling.jpg 240w"
+                                        sizes="(max-width: 150px) 100vw, 150px"></a>
+                            </div>
+                            <figcaption class="wp-caption-text gallery-caption" id="gallery-1-258">
+                                False Ceiling
+                            </figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <div class="gallery-icon landscape">
+                                <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="230a520"
+                                    data-elementor-lightbox-title="wardrobe"
+                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjU5LCJ1cmwiOiJodHRwczpcL1wvZHJpZnR3b29kaW50ZXJpb3JzLmluXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wMlwvd2FyZHJvYmUucG5nIiwic2xpZGVzaG93IjoiMjMwYTUyMCJ9"
+                                    href="https://driftwoodinteriors.in/wp-content/uploads/2024/02/wardrobe.png"><img
+                                        loading="lazy" decoding="async" width="150" height="150"
+                                        src="https://driftwoodinteriors.in/wp-content/uploads/2024/02/wardrobe-150x150.png"
+                                        class="attachment-thumbnail size-thumbnail" alt=""
+                                        aria-describedby="gallery-1-259"
+                                        srcset="https://driftwoodinteriors.in/wp-content/uploads/2024/02/wardrobe-150x150.png 150w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/wardrobe-300x300.png 300w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/wardrobe.png 512w"
+                                        sizes="(max-width: 150px) 100vw, 150px"></a>
+                            </div>
+                            <figcaption class="wp-caption-text gallery-caption" id="gallery-1-259">
+                                Foyer Design
+                            </figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <div class="gallery-icon landscape">
+                                <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="230a520"
+                                    data-elementor-lightbox-title="wallpaper"
+                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjYwLCJ1cmwiOiJodHRwczpcL1wvZHJpZnR3b29kaW50ZXJpb3JzLmluXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wMlwvd2FsbHBhcGVyLnBuZyIsInNsaWRlc2hvdyI6IjIzMGE1MjAifQ%3D%3D"
+                                    href="https://driftwoodinteriors.in/wp-content/uploads/2024/02/wallpaper.png"><img
+                                        loading="lazy" decoding="async" width="150" height="150"
+                                        src="https://driftwoodinteriors.in/wp-content/uploads/2024/02/wallpaper-150x150.png"
+                                        class="attachment-thumbnail size-thumbnail" alt=""
+                                        aria-describedby="gallery-1-260"
+                                        srcset="https://driftwoodinteriors.in/wp-content/uploads/2024/02/wallpaper-150x150.png 150w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/wallpaper-300x300.png 300w, https://driftwoodinteriors.in/wp-content/uploads/2024/02/wallpaper.png 512w"
+                                        sizes="(max-width: 150px) 100vw, 150px"></a>
+                            </div>
+                            <figcaption class="wp-caption-text gallery-caption" id="gallery-1-260">
+                                wallpapers
+                            </figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <div class="gallery-icon landscape">
+                                <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="230a520"
+                                    data-elementor-lightbox-title="Wall Paint"
+                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjYxLCJ1cmwiOiJodHRwczpcL1wvZHJpZnR3b29kaW50ZXJpb3JzLmluXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wMlwvV2FsbC1QYWludC5wbmciLCJzbGlkZXNob3ciOiIyMzBhNTIwIn0%3D"
+                                    href="https://driftwoodinteriors.in/wp-content/uploads/2024/02/Wall-Paint.png"><img
+                                        loading="lazy" decoding="async" width="128" height="128"
+                                        src="https://driftwoodinteriors.in/wp-content/uploads/2024/02/Wall-Paint.png"
+                                        class="attachment-thumbnail size-thumbnail" alt=""
+                                        aria-describedby="gallery-1-261"></a>
+                            </div>
+                            <figcaption class="wp-caption-text gallery-caption" id="gallery-1-261">
+                                Wall Paint
+                            </figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <div class="gallery-icon landscape">
+                                <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="230a520"
+                                    data-elementor-lightbox-title="Bathroom"
+                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjYyLCJ1cmwiOiJodHRwczpcL1wvZHJpZnR3b29kaW50ZXJpb3JzLmluXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wMlwvQmF0aHJvb20ucG5nIiwic2xpZGVzaG93IjoiMjMwYTUyMCJ9"
+                                    href="https://driftwoodinteriors.in/wp-content/uploads/2024/02/Bathroom.png"><img
+                                        loading="lazy" decoding="async" width="128" height="128"
+                                        src="https://driftwoodinteriors.in/wp-content/uploads/2024/02/Bathroom.png"
+                                        class="attachment-thumbnail size-thumbnail" alt=""
+                                        aria-describedby="gallery-1-262"></a>
+                            </div>
+                            <figcaption class="wp-caption-text gallery-caption" id="gallery-1-262">
+                                Bathroom
+                            </figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <div class="gallery-icon landscape">
+                                <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="230a520"
+                                    data-elementor-lightbox-title="Pooja Unit"
+                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjYzLCJ1cmwiOiJodHRwczpcL1wvZHJpZnR3b29kaW50ZXJpb3JzLmluXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wMlwvUG9vamEtVW5pdC5wbmciLCJzbGlkZXNob3ciOiIyMzBhNTIwIn0%3D"
+                                    href="https://driftwoodinteriors.in/wp-content/uploads/2024/02/Pooja-Unit.png"><img
+                                        loading="lazy" decoding="async" width="128" height="128"
+                                        src="https://driftwoodinteriors.in/wp-content/uploads/2024/02/Pooja-Unit.png"
+                                        class="attachment-thumbnail size-thumbnail" alt=""
+                                        aria-describedby="gallery-1-263"></a>
+                            </div>
+                            <figcaption class="wp-caption-text gallery-caption" id="gallery-1-263">
+                                Pooja Unit
+                            </figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <div class="gallery-icon landscape">
+                                <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="230a520"
+                                    data-elementor-lightbox-title="Lights"
+                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjY0LCJ1cmwiOiJodHRwczpcL1wvZHJpZnR3b29kaW50ZXJpb3JzLmluXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wMlwvTGlnaHRzLnBuZyIsInNsaWRlc2hvdyI6IjIzMGE1MjAifQ%3D%3D"
+                                    href="https://driftwoodinteriors.in/wp-content/uploads/2024/02/Lights.png"><img
+                                        loading="lazy" decoding="async" width="128" height="128"
+                                        src="https://driftwoodinteriors.in/wp-content/uploads/2024/02/Lights.png"
+                                        class="attachment-thumbnail size-thumbnail" alt=""
+                                        aria-describedby="gallery-1-264"></a>
+                            </div>
+                            <figcaption class="wp-caption-text gallery-caption" id="gallery-1-264">
+                                Lights
+                            </figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <div class="gallery-icon landscape">
+                                <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="230a520"
+                                    data-elementor-lightbox-title="Moveable Furniture"
+                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjY1LCJ1cmwiOiJodHRwczpcL1wvZHJpZnR3b29kaW50ZXJpb3JzLmluXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wMlwvTW92ZWFibGUtRnVybml0dXJlLnBuZyIsInNsaWRlc2hvdyI6IjIzMGE1MjAifQ%3D%3D"
+                                    href="https://driftwoodinteriors.in/wp-content/uploads/2024/02/Moveable-Furniture.png"><img
+                                        loading="lazy" decoding="async" width="128" height="128"
+                                        src="https://driftwoodinteriors.in/wp-content/uploads/2024/02/Moveable-Furniture.png"
+                                        class="attachment-thumbnail size-thumbnail" alt=""
+                                        aria-describedby="gallery-1-265"></a>
+                            </div>
+                            <figcaption class="wp-caption-text gallery-caption" id="gallery-1-265">
+                                Moveable Furniture
+                            </figcaption>
+                        </figure>
+                        <figure class="gallery-item">
+                            <div class="gallery-icon landscape">
+                                <a data-elementor-open-lightbox="yes" data-elementor-lightbox-slideshow="230a520"
+                                    data-elementor-lightbox-title="Kids Bedroom"
+                                    data-e-action-hash="#elementor-action%3Aaction%3Dlightbox%26settings%3DeyJpZCI6MjY2LCJ1cmwiOiJodHRwczpcL1wvZHJpZnR3b29kaW50ZXJpb3JzLmluXC93cC1jb250ZW50XC91cGxvYWRzXC8yMDI0XC8wMlwvS2lkcy1CZWRyb29tLnBuZyIsInNsaWRlc2hvdyI6IjIzMGE1MjAifQ%3D%3D"
+                                    href="https://driftwoodinteriors.in/wp-content/uploads/2024/02/Kids-Bedroom.png"><img
+                                        loading="lazy" decoding="async" width="128" height="128"
+                                        src="https://driftwoodinteriors.in/wp-content/uploads/2024/02/Kids-Bedroom.png"
+                                        class="attachment-thumbnail size-thumbnail" alt=""
+                                        aria-describedby="gallery-1-266"></a>
+                            </div>
+                            <figcaption class="wp-caption-text gallery-caption" id="gallery-1-266">
+                                Kids Bedroom
+                            </figcaption>
+                        </figure>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Content Section -->
+
+    <!-- Gallery Section -->
+    <div class="gallery-section">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="{% static 'mastero_interiors/images/g1.jpg' %}" alt="3D Design Sample 1">
+            <img src="{% static 'mastero_interiors/images/g2.jpg' %}" alt="3D Design Sample 2">
+            <img src="{% static 'mastero_interiors/images/g3.jpg' %}" alt="3D Design Sample 3">
+        </div>
+        <div class="view-more">
+            <a href="">
+                <i>&#x1F50D;</i> View More
+            </a>
+        </div>
+    </div>
+
+    {% include 'mastero_interiors/footer.html' %}
+    {% include 'mastero_interiors/floating_icons.html' %}
+
+    <script src="{% static 'mastero_interiors/js/scripts.js' %}"></script>
+</body>
+
+</html>

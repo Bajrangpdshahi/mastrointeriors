@@ -1,0 +1,31 @@
+<!-- templates/mastero_interiors/header.html -->
+{% load static %}
+<header>
+    <div class="branding">
+        <img src="{% static 'mastero_interiors/images/PNG.png' %}" alt="Mastero Interior Logo">
+        <a href="{% url 'index' %}" class="brand-name">
+            <h1>Mastro Interiors</h1>
+            <h3>Mob : 8802636414</h3>
+        </a>
+    </div>
+    <div class="notification">
+        <p>Important Announcement: Transform Your Space for Just ₹99! 🏠✨ Get Expert Interior Design Consultancy Now! 🎨 Ask Us Anything—From Design Concepts to Style Tips! Hurry, Limited Time Offer!</p>
+    </div>
+
+    <button class="menu-toggle" aria-label="Toggle navigation">☰</button>
+
+    <nav>
+        <a href="{% url 'index' %}">Home</a>
+        <div class="dropdown">
+            <a href="javascript:void(0)">3D Designs</a>
+            <div class="dropdown-content">
+                <a href="{% url 'index' %}">Interior Design</a>
+                <a href="{% url 'index' %}">Exterior Design</a>
+                <a href="{% url 'index' %}">Terrace Design</a>
+            </div>
+        </div>
+        <a href="{% url 'index' %}">Customised Furniture</a>
+        <a href="{% url 'blog_page' %}">Blogs</a>
+    </nav>
+    </nav>
+</header>

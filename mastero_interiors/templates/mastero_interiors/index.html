@@ -1,0 +1,151 @@
+{% load static %}
+
+<!-- meetdesigner/templates/meetdesigner/meet_designer.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastero Interior</title>
+    <!-- <link rel="stylesheet" href="{% static 'css/styles.css' %}"> -->
+    <link rel="stylesheet" href="{% static 'mastero_interiors/css/styles.css' %}">
+    
+
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="branding">
+            <!-- <img src="{% static 'images/PNG.png' %}" alt="Mastero Interior Logo"> -->
+            <img src="{% static 'mastero_interiors/images/PNG.png' %}" alt="Mastero Interior Logo">
+            <h1>Mastero Interior</h1>
+        </div>
+        <div class="notification">
+            <p>Important Announcement: Transform Your Space for Just ₹99! 🏠✨ Get Expert Interior Design Consultancy Now! 🎨 Ask Us Anything—From Design Concepts to Style Tips! Hurry, Limited Time Offer!</p>
+        </div>
+
+        <nav>
+            <a href="{% url 'index' %}">Home</a>
+            
+        </nav>
+    </header>
+    
+    <!-- Flash Sale Popup -->
+    <div id="popup" class="popup">
+        <div class="popup-content">
+            <span class="close-btn" id="close-btn">&times;</span>
+            <img src="{% static 'images/21.jpg' %}" alt="Flash Sale Poster">
+        </div>
+    </div>
+
+    <!-- Slider Section -->
+    <div class="slider">
+        <div class="slides">
+            <div class="slide">
+                <img src="{% static 'images/1.jpg' %}" alt="Slide 1">
+            </div>
+            <div class="slide">
+                <img src="{% static 'images/2.jpg' %}" alt="Slide 2">
+            </div>
+            <div class="slide">
+                <img src="{% static 'images/3.jpg' %}" alt="Slide 3">
+            </div>
+        </div>
+        <div class="contact-form">
+            <h3>Meet a Designer</h3>
+            <form method="POST" action="{% url 'meet_designer' %}">
+                {% csrf_token %}
+                <input type="text" name="name" placeholder="Your Name" required>
+                <input type="email" name="email" placeholder="Your Email" required>
+                <textarea name="message" placeholder="Your Message" required></textarea>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+        <a class="prev" onclick="moveSlide(-1)">&#10094;</a>
+        <a class="next" onclick="moveSlide(1)">&#10095;</a>
+    </div>
+    <div class="dots">
+        <span class="dot" onclick="currentSlide(1)"></span>
+        <span class="dot" onclick="currentSlide(2)"></span>
+        <span class="dot" onclick="currentSlide(3)"></span>
+    </div>
+
+    <!-- Content Section -->
+    <div class="content">
+        <h2>Why Mastero Interior?</h2>
+        <div class="services">
+            <div class="service">
+                <h3>Personalized Designs</h3>
+                <p>Our designs are tailored to reflect your unique style and needs.</p>
+            </div>
+            <div class="service">
+                <h3>Quality Craftsmanship</h3>
+                <p>We ensure top-quality materials and craftsmanship in every project.</p>
+            </div>
+            <div class="service">
+                <h3>Comprehensive Service</h3>
+                <p>From consultation to execution, we handle every detail seamlessly.</p>
+            </div>
+            <div class="service">
+                <h3>Timely Delivery</h3>
+                <p>We respect your time and deliver projects on schedule.</p>
+            </div>
+            <div class="service">
+                <h3>Transparent Pricing</h3>
+                <p>Our pricing is clear with no hidden costs, providing you peace of mind.</p>
+            </div>
+        </div>
+
+        <h2>Explore Our Projects</h2>
+        <div class="projects">
+            <div class="project">
+                <h3>Modern Living Room</h3>
+                <p>A beautiful and modern living room designed with comfort in mind.</p>
+            </div>
+            <div class="project">
+                <h3>Luxurious Bedroom</h3>
+                <p>An elegant and luxurious bedroom for ultimate relaxation.</p>
+            </div>
+            <div class="project">
+                <h3>Stylish Kitchen</h3>
+                <p>A stylish and functional kitchen designed for the modern chef.</p>
+            </div>
+        </div>
+    </div>
+
+    <!-- Gallery Section -->
+    <div class="gallery-section">
+        <h2>Gallery</h2>
+        <div class="gallery">
+            <img src="{% static 'images/g1.jpg' %}" alt="3D Design Sample 1">
+            <img src="{% static 'images/g2.jpg' %}" alt="3D Design Sample 2">
+            <img src="{% static 'images/g3.jpg' %}" alt="3D Design Sample 3">
+        </div>
+        <div class="view-more">
+            <a href="{% url 'gallery' %}">
+                <i>&#x1F50D;</i> View More
+            </a>
+        </div>
+    </div>
+
+    <!-- Footer with Instagram Posts -->
+    <footer>
+        <h3>Latest Instagram Posts</h3>
+        <div class="instagram-posts">
+            <img src="https://via.placeholder.com/150" alt="Instagram Post 1">
+            <img src="https://via.placeholder.com/150" alt="Instagram Post 2">
+            <img src="https://via.placeholder.com/150" alt="Instagram Post 3">
+        </div>
+        <p>&copy; 2024 Mastero Interior | All Rights Reserved</p>
+    </footer>
+
+    <!-- Floating Icons -->
+    <div class="floating-icons">
+        <a href="https://wa.me/8802636414" class="whatsapp" target="_blank" title="Chat on WhatsApp">&#x2709;</a>
+        <a href="tel:+918802636414" class="call" title="Call Us">&#x260E;</a>
+        <a href="https://www.instagram.com/mastrointeriors/?hl=en" target="_blank" class="instagram" title="Visit Our Instagram">&#x1F4F7;</a>
+    </div>
+
+    <script src="{% static 'js/scripts.js' %}"></script>
+</body>
+</html>

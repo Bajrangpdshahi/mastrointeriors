@@ -1,0 +1,22 @@
+# Ignore Python virtual environment
+venv/
+env/
+
+# Ignore database files
+*.sqlite3
+
+# Ignore compiled Python files
+*.pyc
+__pycache__/
+
+# Ignore static & media files (optional)
+staticfiles/
+media/
+
+# Ignore system files
+.DS_Store
+*.log
+
+**/settings.py
+**/asgi.py
+**/wsgi.py

@@ -1,0 +1,55 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mastero Interior</title>
+    <link rel="stylesheet" href="{% static 'mastero_interiors/css/styles.css' %}">
+</head>
+<body>
+    {% include 'mastero_interiors/header.html' %}
+        <!-- Main Content -->
+        <main class="blog-page">
+            <section class="blog-content">
+                <article class="blog-post">
+                    <img src="{% static 'mastero_interiors/images/sd.jpg' %}" alt="Blog Post Image" class="blog-image">
+                    <h2>Interior Design Tips for Small Spaces</h2>
+                    <p>Designing small spaces can be challenging, but with the right strategies, you can make even the tiniest rooms feel spacious and functional. Here are some tips to help you get started:</p>
+                    <p><strong>1. Use Light Colors:</strong> Light colors can make a room feel larger and brighter. Opt for shades like white, beige, or light gray for walls, floors, and furniture.</p>
+                    <p><strong>2. Maximize Vertical Space:</strong> Utilize vertical space by installing shelves or cabinets up to the ceiling. This helps to free up floor space and makes the room feel taller.</p>
+                    <p><strong>3. Choose Multi-Functional Furniture:</strong> Furniture that serves multiple purposes, such as a sofa bed or an ottoman with storage, can save space and add functionality.</p>
+                    <p><strong>4. Incorporate Mirrors:</strong> Mirrors reflect light and create the illusion of more space. Place a large mirror or a few smaller ones strategically around the room.</p>
+                    <p><strong>5. Keep It Minimal:</strong> Less is more when it comes to small spaces. Avoid cluttering the room with too many accessories and stick to a few key pieces that enhance the design.</p>
+                    <p>With these tips, you can create a stylish and comfortable small space that feels much larger than it actually is.</p>
+                </article>
+    
+                <!-- Pagination -->
+                <div class="pagination">
+                    <a href="blog-page1.html" class="prev">Previous</a>
+                    <a href="blog-page3.html" class="next">Next</a>
+                </div>
+            </section>
+    
+            <!-- Sidebar -->
+            <aside class="sidebar">
+                <h3>Trending Blogs</h3>
+                <ul>
+                    <li><a href="blog-post1.html">5 Easy Ways to Refresh Your Living Room</a></li>
+                    <li><a href="blog-post2.html">How to Choose the Perfect Lighting for Your Home</a></li>
+                    <li><a href="blog-post3.html">The Ultimate Guide to Modern Interior Design</a></li>
+                    <li><a href="blog-post4.html">Top 10 DIY Home Decor Projects</a></li>
+                    <li><a href="blog-post5.html">Sustainable Design Tips for Eco-Friendly Homes</a></li>
+                </ul>
+            </aside>
+        </main>
+    
+        <!-- Footer Section -->
+        <footer>
+            <p>&copy; 2024 Mastero Interior. All Rights Reserved.</p>
+        </footer>
+    
+    </body>
+    </html>
